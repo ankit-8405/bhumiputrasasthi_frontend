@@ -1,0 +1,499 @@
+/* ========================================
+   PROFESSIONAL WEATHER DETAIL PAGE
+   Modern, Clean, Live Updates
+======================================== */
+
+.weather-detail-page {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #4facfe 0%, #00f2fe 100%);
+    padding-bottom: 40px;
+}
+
+[data-theme="dark"] .weather-detail-page {
+    background: linear-gradient(180deg, #1a1d23 0%, #0f1115 100%);
+}
+
+/* ========================================
+   HEADER SECTION
+======================================== */
+
+.weather-header {
+    padding: 60px 20px 40px;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateX(-4px);
+}
+
+.back-btn:active {
+    transform: translateX(-2px) scale(0.95);
+}
+
+.header-info h1 {
+    font-size: 5rem;
+    font-weight: 300;
+    margin: 0 0 12px 0;
+    line-height: 1;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 1.1rem;
+    margin: 0 0 8px 0;
+    opacity: 0.95;
+}
+
+.description {
+    font-size: 1.2rem;
+    margin: 0;
+    opacity: 0.9;
+    text-transform: capitalize;
+}
+
+/* ========================================
+   WEATHER METRICS SECTION
+======================================== */
+
+.weather-metrics,
+.temp-range,
+.forecast-section,
+.farming-advice {
+    background: var(--bg-card);
+    border-radius: 20px;
+    padding: 24px 20px;
+    margin: 20px 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] .weather-metrics,
+[data-theme="dark"] .temp-range,
+[data-theme="dark"] .forecast-section,
+[data-theme="dark"] .farming-advice {
+    background: var(--bg-elevated);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.weather-metrics h3,
+.temp-range h3,
+.forecast-section h3,
+.farming-advice h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 20px 0;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.metric-card {
+    background: var(--bg-main);
+    border-radius: 16px;
+    padding: 18px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+[data-theme="dark"] .metric-card {
+    background: var(--bg-card);
+}
+
+.metric-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-color: rgba(82, 183, 136, 0.3);
+}
+
+[data-theme="dark"] .metric-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.metric-card svg {
+    flex-shrink: 0;
+}
+
+.metric-card .label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+.metric-card strong {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* ========================================
+   TEMPERATURE RANGE
+======================================== */
+
+.range-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.range-visual {
+    height: 12px;
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+}
+
+[data-theme="dark"] .range-visual {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.range-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4facfe 0%, #f093fb 50%, #ef4444 100%);
+    border-radius: 6px;
+    transition: width 0.5s ease;
+}
+
+/* ========================================
+   FORECAST SECTION
+======================================== */
+
+.forecast-list {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(82, 183, 136, 0.3) transparent;
+}
+
+.forecast-list::-webkit-scrollbar {
+    height: 6px;
+}
+
+.forecast-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.forecast-list::-webkit-scrollbar-thumb {
+    background: rgba(82, 183, 136, 0.3);
+    border-radius: 3px;
+}
+
+.forecast-card {
+    min-width: 140px;
+    background: var(--bg-main);
+    border-radius: 16px;
+    padding: 18px 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+[data-theme="dark"] .forecast-card {
+    background: var(--bg-card);
+}
+
+.forecast-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-color: rgba(82, 183, 136, 0.3);
+}
+
+[data-theme="dark"] .forecast-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.forecast-date {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 12px 0;
+}
+
+.forecast-card svg {
+    margin: 8px 0;
+}
+
+.forecast-temp {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 12px 0 8px;
+}
+
+.temp-max {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.temp-min {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.forecast-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin: 0;
+    text-transform: capitalize;
+}
+
+/* ========================================
+   FARMING ADVICE
+======================================== */
+
+.advice-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.advice-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px;
+    border-radius: 14px;
+    border-left: 4px solid;
+}
+
+.advice-item span {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.advice-item p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-primary);
+}
+
+.advice-item.warning {
+    background: rgba(239, 68, 68, 0.08);
+    border-left-color: #ef4444;
+}
+
+.advice-item.info {
+    background: rgba(59, 130, 246, 0.08);
+    border-left-color: #3b82f6;
+}
+
+.advice-item.caution {
+    background: rgba(245, 158, 11, 0.08);
+    border-left-color: #f59e0b;
+}
+
+.advice-item.success {
+    background: rgba(34, 197, 94, 0.08);
+    border-left-color: #22c55e;
+}
+
+[data-theme="dark"] .advice-item.warning {
+    background: rgba(239, 68, 68, 0.12);
+}
+
+[data-theme="dark"] .advice-item.info {
+    background: rgba(59, 130, 246, 0.12);
+}
+
+[data-theme="dark"] .advice-item.caution {
+    background: rgba(245, 158, 11, 0.12);
+}
+
+[data-theme="dark"] .advice-item.success {
+    background: rgba(34, 197, 94, 0.12);
+}
+
+/* ========================================
+   LOADING SCREEN
+======================================== */
+
+.loading-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 20px;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(82, 183, 136, 0.2);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-screen p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 380px) {
+    .weather-header {
+        padding: 50px 16px 30px;
+    }
+
+    .header-info h1 {
+        font-size: 4rem;
+    }
+
+    .location {
+        font-size: 1rem;
+    }
+
+    .description {
+        font-size: 1.1rem;
+    }
+
+    .weather-metrics,
+    .temp-range,
+    .forecast-section,
+    .farming-advice {
+        padding: 20px 16px;
+        margin: 16px 12px;
+    }
+
+    .metrics-grid {
+        gap: 12px;
+    }
+
+    .metric-card {
+        padding: 16px 14px;
+    }
+
+    .forecast-card {
+        min-width: 130px;
+        padding: 16px 14px;
+    }
+}
+
+@media (min-width: 640px) {
+    .weather-detail-page {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .header-info h1 {
+        font-size: 6rem;
+    }
+
+    .metrics-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .metrics-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+
+    .forecast-card {
+        min-width: 150px;
+    }
+}
+
+/* ========================================
+   ANIMATIONS
+======================================== */
+
+.weather-header,
+.weather-metrics,
+.temp-range,
+.forecast-section,
+.farming-advice {
+    animation: fadeInUp 0.5s ease-out backwards;
+}
+
+.weather-metrics {
+    animation-delay: 0.1s;
+}
+
+.temp-range {
+    animation-delay: 0.2s;
+}
+
+.forecast-section {
+    animation-delay: 0.3s;
+}
+
+.farming-advice {
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

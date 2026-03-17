@@ -1,0 +1,226 @@
+.training-header {
+    background: #e8f5e9;
+    color: var(--text-main);
+    border-bottom: none;
+}
+
+.tabs-pill-style {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 10px 16px;
+    background: white;
+    position: sticky;
+    top: 60px;
+    /* Adjust for navbar */
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.pill-tab {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: #f5f5f5;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.pill-tab.active {
+    background: var(--primary);
+    color: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.content-area {
+    padding: 16px;
+}
+
+/* Video Grid */
+.video-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.video-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.thumb-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    /* 16:9 Aspect Ratio */
+    background: #eee;
+}
+
+.thumb-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.duration-badge {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+.play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px;
+    height: 48px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-info {
+    padding: 12px;
+}
+
+.video-info h3 {
+    font-size: 1rem;
+    margin: 0 0 4px 0;
+    line-height: 1.4;
+    color: var(--text-main);
+}
+
+.video-info span {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Safety List */
+.safety-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.safety-card {
+    background: white;
+    padding: 16px;
+    border-radius: 12px;
+    display: flex;
+    gap: 16px;
+    box-shadow: var(--shadow-sm);
+}
+
+.safety-icon-box {
+    width: 48px;
+    height: 48px;
+    background: #fff3e0;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.safety-card h3 {
+    margin: 0 0 6px 0;
+    font-size: 1rem;
+    color: var(--text-main);
+}
+
+.safety-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.helpline-banner {
+    margin-top: 20px;
+    background: #ffebee;
+    padding: 20px;
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid #ffcdd2;
+}
+
+.helpline-banner h4 {
+    color: #c62828;
+    margin-top: 0;
+}
+
+.emergency-numbers {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+    font-weight: 600;
+    color: #d32f2f;
+}
+
+
+/* Dark Mode Support */
+[data-theme="dark"] .training-header {
+    background: rgba(82, 183, 136, 0.15);
+}
+
+[data-theme="dark"] .tabs-pill-style {
+    background: var(--bg-elevated);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .pill-tab {
+    background: var(--bg-card);
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .pill-tab.active {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 0 12px rgba(82, 183, 136, 0.3);
+}
+
+[data-theme="dark"] .video-card {
+    background: var(--bg-elevated);
+}
+
+[data-theme="dark"] .safety-card {
+    background: var(--bg-elevated);
+}
+
+[data-theme="dark"] .safety-icon-box {
+    background: rgba(255, 152, 0, 0.15);
+}
+
+[data-theme="dark"] .helpline-banner {
+    background: rgba(239, 83, 80, 0.15);
+    border-color: rgba(239, 83, 80, 0.3);
+}
+
+[data-theme="dark"] .helpline-banner h4 {
+    color: #ef5350;
+}
+
+[data-theme="dark"] .emergency-numbers {
+    color: #ef5350;
+}

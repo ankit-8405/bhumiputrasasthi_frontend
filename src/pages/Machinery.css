@@ -1,0 +1,135 @@
+.mach-page { padding: 0 0 80px; }
+
+.mach-header { display: flex; align-items: center; padding: 16px 16px 12px; }
+.mach-header-left { display: flex; align-items: center; gap: 12px; }
+.mach-header-icon { font-size: 2.2rem; line-height: 1; }
+.mach-title { font-size: 1.2rem; font-weight: 700; color: var(--text-primary); margin: 0 0 2px; }
+.mach-subtitle { font-size: 0.82rem; color: var(--text-muted); margin: 0; }
+
+.mach-search {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--bg-card); border: 1.5px solid var(--border-color);
+    border-radius: 12px; padding: 10px 14px; margin: 0 16px 12px;
+    transition: border-color 0.2s ease;
+}
+.mach-search:focus-within { border-color: #f59e0b; }
+.mach-search-icon { color: var(--text-muted); flex-shrink: 0; }
+.mach-search input {
+    flex: 1; border: none; background: transparent; outline: none;
+    font-size: 0.9rem; color: var(--text-primary);
+}
+.mach-search input::placeholder { color: var(--text-muted); }
+
+.mach-tabs {
+    display: flex; gap: 0; margin: 0 16px 10px;
+    background: var(--bg-secondary); border-radius: 12px; padding: 4px;
+}
+.mach-tab {
+    flex: 1; padding: 9px 8px; border: none; background: transparent;
+    color: var(--text-secondary); font-size: 0.82rem; font-weight: 600;
+    border-radius: 9px; cursor: pointer; transition: all 0.2s ease;
+}
+.mach-tab.active { background: var(--bg-card); color: #f59e0b; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+
+.mach-cats {
+    display: flex; gap: 8px; padding: 0 16px 10px;
+    overflow-x: auto; scrollbar-width: none;
+}
+.mach-cats::-webkit-scrollbar { display: none; }
+.mach-cat-pill {
+    padding: 6px 14px; border-radius: 20px; border: 1.5px solid var(--border-color);
+    background: var(--bg-card); color: var(--text-secondary);
+    font-size: 0.8rem; font-weight: 600; cursor: pointer; white-space: nowrap;
+    transition: all 0.2s ease; flex-shrink: 0;
+}
+.mach-cat-pill.active { background: #f59e0b; color: #fff; border-color: #f59e0b; }
+
+.mach-content { padding: 0 16px; }
+
+.mach-loading, .mach-error, .mach-empty {
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+    padding: 50px 20px; color: var(--text-muted); text-align: center;
+}
+.mach-retry-btn {
+    background: #f59e0b; color: #fff; border: none;
+    padding: 9px 20px; border-radius: 9px; font-weight: 600; cursor: pointer;
+}
+
+.mach-list { display: flex; flex-direction: column; gap: 12px; }
+.mach-card {
+    background: var(--bg-card); border: 1px solid var(--border-color);
+    border-radius: 16px; padding: 14px; animation: fadeInUp 0.4s ease both;
+    transition: box-shadow 0.2s ease;
+}
+.mach-card:hover { box-shadow: 0 4px 16px rgba(245,158,11,0.12); }
+
+.mach-card-head { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+.mach-card-icon { font-size: 2rem; line-height: 1; flex-shrink: 0; }
+.mach-card-info { flex: 1; }
+.mach-card-info h3 { font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin: 0 0 3px; }
+.mach-card-desc { font-size: 0.8rem; color: var(--text-secondary); margin: 0; line-height: 1.4; }
+.mach-available-badge { color: #4caf50; flex-shrink: 0; margin-top: 3px; }
+
+.mach-card-pricing {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--bg-secondary); border-radius: 10px;
+    padding: 9px 12px; margin-bottom: 8px;
+}
+.mach-price-item {
+    display: flex; align-items: center; gap: 5px;
+    font-size: 0.9rem; font-weight: 700; color: var(--text-primary);
+}
+.mach-price-item svg { color: var(--text-muted); }
+.mach-price-divider { width: 1px; height: 16px; background: var(--border-color); }
+
+.mach-subsidy-tag {
+    font-size: 0.78rem; color: var(--color-primary); font-weight: 600;
+    margin-bottom: 10px; padding: 5px 10px;
+    background: rgba(82,183,136,0.1); border-radius: 8px; display: inline-block;
+}
+
+.mach-book-btn {
+    width: 100%; padding: 11px; border-radius: 11px; border: none;
+    background: linear-gradient(135deg, #f59e0b, #fb923c);
+    color: #fff; font-size: 0.9rem; font-weight: 700; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    transition: opacity 0.2s ease;
+}
+.mach-book-btn.booked { background: linear-gradient(135deg, #4caf50, #52b788); }
+.mach-book-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+
+.mach-chc-list { display: flex; flex-direction: column; gap: 10px; }
+.mach-chc-card {
+    background: var(--bg-card); border: 1px solid var(--border-color);
+    border-radius: 14px; padding: 14px;
+}
+.mach-chc-card h3 {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 0.92rem; font-weight: 700; color: var(--text-primary); margin: 0 0 6px;
+}
+.mach-chc-card p { font-size: 0.82rem; color: var(--text-secondary); margin: 0 0 8px; display: flex; align-items: center; gap: 5px; }
+.mach-chc-phone {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.85rem; font-weight: 600; color: #4a9eff; text-decoration: none;
+}
+
+.mach-subsidy-info {}
+.mach-sub-header { text-align: center; margin-bottom: 14px; }
+.mach-sub-header h3 { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin: 0 0 4px; }
+.mach-sub-header p { font-size: 0.82rem; color: var(--text-muted); margin: 0; }
+.mach-sub-card {
+    background: var(--bg-card); border: 1px solid var(--border-color);
+    border-radius: 14px; padding: 14px; margin-bottom: 10px;
+}
+.mach-sub-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--text-primary); margin: 0 0 8px; }
+.mach-sub-row { display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.85rem; color: var(--text-secondary); }
+.mach-sub-pct { color: #f59e0b; font-size: 1rem; }
+.mach-sub-note {
+    display: flex; gap: 8px; background: rgba(74,158,255,0.08);
+    border: 1px solid rgba(74,158,255,0.2); border-radius: 12px; padding: 12px;
+}
+.mach-sub-note p { font-size: 0.82rem; color: var(--text-secondary); margin: 0; line-height: 1.5; }
+
+.spin { animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }

@@ -1,0 +1,365 @@
+/* ========================================
+   BHUMIPUTRASATHI DESIGN SYSTEM
+   Unified Visual Language
+======================================== */
+
+:root {
+    /* ===== SPACING SYSTEM ===== */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 12px;
+    --space-lg: 16px;
+    --space-xl: 20px;
+    --space-2xl: 24px;
+    --space-3xl: 32px;
+
+    /* ===== BORDER RADIUS ===== */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 14px;
+    --radius-xl: 16px;
+    --radius-2xl: 20px;
+    --radius-pill: 24px;
+    --radius-full: 50%;
+
+    /* ===== CARD STYLES ===== */
+    --card-padding: 16px;
+    --card-padding-sm: 14px;
+    --card-padding-lg: 18px;
+    --card-border-radius: 16px;
+    --card-border: 1px solid var(--border-color);
+    --card-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    --card-shadow-hover: 0 6px 16px rgba(82, 183, 136, 0.15);
+    --card-shadow-active: 0 4px 12px rgba(82, 183, 136, 0.12);
+
+    /* ===== ICON CONTAINER ===== */
+    --icon-size-sm: 44px;
+    --icon-size-md: 56px;
+    --icon-size-lg: 64px;
+    --icon-border-radius: 14px;
+
+    /* ===== TYPOGRAPHY ===== */
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.8rem;
+    --font-size-base: 0.9rem;
+    --font-size-md: 0.95rem;
+    --font-size-lg: 1rem;
+    --font-size-xl: 1.1rem;
+    --font-size-2xl: 1.25rem;
+    --font-size-3xl: 2rem;
+
+    --font-weight-normal: 500;
+    --font-weight-medium: 600;
+    --font-weight-bold: 700;
+
+    /* ===== COLORS - AGRICULTURAL THEME ===== */
+    --color-primary: #52b788;
+    --color-primary-light: #5fd89d;
+    --color-primary-dark: #45a073;
+    
+    --color-accent-blue: #4a9eff;
+    --color-accent-purple: #8b5cf6;
+    --color-accent-orange: #fb923c;
+    --color-accent-yellow: #ffb74d;
+    
+    --color-success: #4caf50;
+    --color-warning: #ffb74d;
+    --color-error: #ef5350;
+    --color-info: #4a9eff;
+
+    /* ===== TRANSITIONS ===== */
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* ===== ELEVATION (Z-INDEX) ===== */
+    --z-base: 1;
+    --z-dropdown: 100;
+    --z-sticky: 500;
+    --z-modal: 1000;
+    --z-nav: 9999;
+}
+
+/* ========================================
+   UNIFIED CARD COMPONENT
+======================================== */
+
+.unified-card {
+    background: var(--bg-card);
+    border: var(--card-border);
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    box-shadow: var(--card-shadow);
+    transition: all var(--transition-base);
+    cursor: pointer;
+}
+
+.unified-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--card-shadow-hover);
+    border-color: rgba(82, 183, 136, 0.3);
+}
+
+.unified-card:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+[data-theme="dark"] .unified-card {
+    background: var(--bg-elevated);
+    border-color: rgba(82, 183, 136, 0.1);
+}
+
+[data-theme="dark"] .unified-card:hover {
+    box-shadow: 0 6px 20px rgba(82, 183, 136, 0.2);
+}
+
+/* ========================================
+   UNIFIED ICON CONTAINER
+======================================== */
+
+.unified-icon {
+    width: var(--icon-size-md);
+    height: var(--icon-size-md);
+    border-radius: var(--icon-border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.unified-icon-sm {
+    width: var(--icon-size-sm);
+    height: var(--icon-size-sm);
+    border-radius: var(--radius-md);
+}
+
+.unified-icon-lg {
+    width: var(--icon-size-lg);
+    height: var(--icon-size-lg);
+    border-radius: var(--icon-border-radius);
+}
+
+/* Icon Color Variants */
+.icon-primary {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+    color: white;
+}
+
+.icon-blue {
+    background: rgba(74, 158, 255, 0.12);
+    color: var(--color-accent-blue);
+}
+
+.icon-purple {
+    background: rgba(139, 92, 246, 0.12);
+    color: var(--color-accent-purple);
+}
+
+.icon-orange {
+    background: rgba(251, 146, 60, 0.12);
+    color: var(--color-accent-orange);
+}
+
+.icon-green {
+    background: rgba(76, 175, 80, 0.12);
+    color: var(--color-success);
+}
+
+.icon-yellow {
+    background: rgba(255, 183, 77, 0.12);
+    color: var(--color-warning);
+}
+
+.icon-red {
+    background: rgba(239, 83, 80, 0.12);
+    color: var(--color-error);
+}
+
+[data-theme="dark"] .icon-blue {
+    background: rgba(74, 158, 255, 0.2);
+    color: #64b5f6;
+}
+
+[data-theme="dark"] .icon-purple {
+    background: rgba(139, 92, 246, 0.2);
+    color: #b794f6;
+}
+
+[data-theme="dark"] .icon-orange {
+    background: rgba(251, 146, 60, 0.2);
+    color: #ffb74d;
+}
+
+[data-theme="dark"] .icon-green {
+    background: rgba(76, 175, 80, 0.2);
+    color: #81c784;
+}
+
+[data-theme="dark"] .icon-yellow {
+    background: rgba(255, 183, 77, 0.2);
+    color: #ffd54f;
+}
+
+[data-theme="dark"] .icon-red {
+    background: rgba(239, 83, 80, 0.2);
+    color: #e57373;
+}
+
+/* ========================================
+   UNIFIED PILL BUTTON
+======================================== */
+
+.unified-pill {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-lg);
+    background: var(--bg-card);
+    border: var(--card-border);
+    border-radius: var(--radius-pill);
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-main);
+}
+
+.unified-pill:hover {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+    color: white;
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(82, 183, 136, 0.3);
+}
+
+.unified-pill:active {
+    transform: translateY(0) scale(0.98);
+}
+
+[data-theme="dark"] .unified-pill {
+    background: var(--bg-elevated);
+    border-color: rgba(82, 183, 136, 0.15);
+}
+
+[data-theme="dark"] .unified-pill:hover {
+    box-shadow: 0 4px 16px rgba(82, 183, 136, 0.35);
+}
+
+/* ========================================
+   UNIFIED SECTION HEADING
+======================================== */
+
+.unified-heading {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-main);
+    margin: 0 0 var(--space-lg) 0;
+    letter-spacing: 0.3px;
+}
+
+[data-theme="dark"] .unified-heading {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* ========================================
+   UNIFIED GRID SYSTEM
+======================================== */
+
+.unified-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+}
+
+.unified-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+}
+
+.unified-grid-auto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--space-md);
+}
+
+/* ========================================
+   UNIFIED HORIZONTAL SCROLL
+======================================== */
+
+.unified-scroll {
+    display: flex;
+    gap: var(--space-md);
+    overflow-x: auto;
+    padding-bottom: var(--space-sm);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.unified-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+/* ========================================
+   UNIFIED PAGE CONTAINER
+======================================== */
+
+.unified-page {
+    padding: var(--space-lg);
+    background: var(--bg-main);
+    min-height: 100vh;
+}
+
+.unified-section {
+    margin-bottom: var(--space-2xl);
+}
+
+/* ========================================
+   UNIFIED ANIMATIONS
+======================================== */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeInUp 0.4s ease-out backwards;
+}
+
+.animate-delay-1 { animation-delay: 0.05s; }
+.animate-delay-2 { animation-delay: 0.1s; }
+.animate-delay-3 { animation-delay: 0.15s; }
+.animate-delay-4 { animation-delay: 0.2s; }
+.animate-delay-5 { animation-delay: 0.25s; }
+.animate-delay-6 { animation-delay: 0.3s; }
+
+/* ========================================
+   RESPONSIVE BREAKPOINTS
+======================================== */
+
+@media (max-width: 380px) {
+    :root {
+        --card-padding: 14px;
+        --space-lg: 12px;
+    }
+
+    .unified-grid-2 {
+        gap: var(--space-sm);
+    }
+}
+
+@media (min-width: 768px) {
+    .unified-page {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: var(--space-xl);
+    }
+}

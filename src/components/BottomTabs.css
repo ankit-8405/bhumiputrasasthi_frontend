@@ -1,0 +1,158 @@
+/* BottomTabs.css */
+/* Uses variables from index.css for consistency */
+
+:root {
+    --nav-bg-light: rgba(255, 255, 255, 0.95);
+    /* Updated to match dark mode's premium feel */
+    --nav-bg-dark: linear-gradient(180deg, rgba(15, 17, 20, 0.98) 0%, rgba(20, 23, 28, 0.99) 50%, rgba(26, 31, 38, 1) 100%);
+    --safe-area-bottom: env(safe-area-inset-bottom, 20px);
+}
+
+.bottom-tabs-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding-bottom: 0;
+    /* Removing safe area padding from here as it messes with fixed positioning sometimes, better on nav */
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+}
+
+.bottom-tabs-modern {
+    pointer-events: auto;
+    width: 100%;
+    /* max-width removed to match "fixed left right 0" behavior if needed, but keeping container center logic */
+    background: var(--nav-bg-light);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding: 10px 12px 18px;
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.1);
+    /* Light mode shadow */
+    transition: all var(--transition-base);
+}
+
+[data-theme='dark'] .bottom-tabs-modern {
+    background: var(--nav-bg-dark);
+    border-top: 1.5px solid rgba(82, 183, 136, 0.12);
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.5), 0 -2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Nav Tab Items */
+.nav-tab {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex: 1;
+    min-width: 62px;
+    max-width: 75px;
+    gap: 5px;
+    padding: 6px 2px;
+    -webkit-tap-highlight-color: transparent;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Tab Icons */
+.tab-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* Light mode defaults */
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    color: var(--text-muted);
+}
+
+[data-theme='dark'] .tab-icon {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.45);
+}
+
+/* Active State */
+.nav-tab.active .tab-icon {
+    background: transparent;
+    color: var(--primary-dark);
+    /* Darker green or standard color */
+    transform: translateY(-5px);
+    /* box-shadow: 0 8px 16px rgba(82, 183, 136, 0.25); */
+}
+
+[data-theme='dark'] .nav-tab.active .tab-icon {
+    background: transparent;
+    box-shadow: none;
+    border-color: transparent;
+    color: var(--primary-light);
+    /* Light green for contrast or just white */
+}
+
+/* Labels */
+.tab-label {
+    font-size: 10.5px;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    line-height: 1;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .tab-label {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.nav-tab.active .tab-label {
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+[data-theme='dark'] .nav-tab.active .tab-label {
+    color: var(--primary-light);
+}
+
+/* Special Home/Community Tab */
+.nav-tab.home-tab {
+    flex: 1.4;
+    transform: translateY(-12px);
+    /* To maintain the raised look */
+}
+
+.home-icon-wrapper {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #52b788 0%, #5fd89d 50%, #6ee5ab 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 32px rgba(82, 183, 136, 0.4), 0 6px 16px rgba(82, 183, 136, 0.3), 0 0 24px rgba(82, 183, 136, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    color: white;
+}
+
+/* Ensure icons inside svg behave */
+.tab-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke-width: 2;
+}

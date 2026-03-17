@@ -1,0 +1,112 @@
+.ca-page { padding: 0 0 80px; }
+
+.ca-header { display: flex; align-items: center; padding: 16px 16px 12px; }
+.ca-header-left { display: flex; align-items: center; gap: 12px; }
+.ca-header-icon { font-size: 2.2rem; line-height: 1; }
+.ca-title { font-size: 1.2rem; font-weight: 700; color: var(--text-primary); margin: 0 0 2px; }
+.ca-subtitle { font-size: 0.82rem; color: var(--text-muted); margin: 0; }
+
+.ca-filters { display: flex; gap: 10px; padding: 0 16px 12px; }
+.ca-filter-group { flex: 1; }
+.ca-filter-group label { display: block; font-size: 0.75rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 5px; }
+.ca-select-wrap { position: relative; }
+.ca-select-wrap select {
+    width: 100%; padding: 9px 28px 9px 12px; border-radius: 11px;
+    border: 1.5px solid var(--border-color); background: var(--bg-card);
+    color: var(--text-primary); font-size: 0.85rem; outline: none;
+    appearance: none; cursor: pointer; transition: border-color 0.2s ease;
+}
+.ca-select-wrap.full select { font-size: 0.9rem; font-weight: 600; }
+.ca-select-wrap select:focus { border-color: #52b788; }
+.ca-arrow { position: absolute; right: 9px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; }
+
+.ca-crop-row { padding: 0 16px 10px; }
+
+.ca-tabs {
+    display: flex; gap: 0; margin: 0 16px 12px;
+    background: var(--bg-secondary); border-radius: 12px; padding: 4px;
+}
+.ca-tab {
+    flex: 1; padding: 8px 6px; border: none; background: transparent;
+    color: var(--text-secondary); font-size: 0.82rem; font-weight: 600;
+    border-radius: 9px; cursor: pointer; transition: all 0.2s ease;
+}
+.ca-tab.active { background: var(--bg-card); color: #52b788; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+
+.ca-content { padding: 0 16px; }
+
+.ca-loading, .ca-error {
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+    padding: 40px 20px; color: var(--text-muted); text-align: center;
+}
+.ca-retry-btn { background: #52b788; color: #fff; border: none; padding: 9px 20px; border-radius: 9px; font-weight: 600; cursor: pointer; }
+
+/* Recommendations */
+.ca-reco-list { display: flex; flex-direction: column; gap: 10px; }
+.ca-reco-card {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--bg-card); border: 1px solid var(--border-color);
+    border-radius: 14px; padding: 14px; animation: fadeInUp 0.4s ease both;
+    transition: box-shadow 0.2s ease;
+}
+.ca-reco-card:hover { box-shadow: 0 4px 14px rgba(82,183,136,0.1); }
+.ca-reco-rank {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: linear-gradient(135deg, #52b788, #4a9eff);
+    color: #fff; font-size: 0.85rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.ca-reco-info { flex: 1; min-width: 0; }
+.ca-reco-info h3 { font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin: 0 0 3px; }
+.ca-reco-info p { font-size: 0.8rem; color: var(--text-secondary); margin: 0 0 6px; }
+.ca-reco-meta { display: flex; align-items: center; gap: 10px; }
+.ca-stars { display: flex; gap: 2px; }
+.ca-water-badge { font-size: 0.75rem; font-weight: 600; padding: 2px 8px; border-radius: 8px; background: rgba(74,158,255,0.1); color: #4a9eff; }
+.ca-water-badge.low { background: rgba(76,175,80,0.1); color: #4caf50; }
+.ca-water-badge.high { background: rgba(74,158,255,0.15); color: #4a9eff; }
+.ca-profit-score { font-size: 1.4rem; font-weight: 800; color: var(--color-primary); flex-shrink: 0; }
+.ca-profit-score span { font-size: 0.7rem; color: var(--text-muted); font-weight: 500; }
+
+/* Fertilizer */
+.ca-fert-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 16px; }
+.ca-fert-header { display: flex; align-items: center; gap: 8px; font-size: 0.95rem; font-weight: 700; color: #52b788; margin-bottom: 14px; }
+.ca-fert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+.ca-fert-item { background: var(--bg-secondary); border-radius: 12px; padding: 12px 8px; text-align: center; }
+.ca-fert-item span { display: block; font-size: 0.72rem; color: var(--text-muted); margin-bottom: 4px; }
+.ca-fert-item strong { font-size: 1rem; font-weight: 700; color: var(--text-primary); }
+.ca-fert-note { display: flex; gap: 8px; background: rgba(82,183,136,0.08); border: 1px solid rgba(82,183,136,0.15); border-radius: 11px; padding: 11px; }
+.ca-fert-note p { font-size: 0.83rem; color: var(--text-secondary); margin: 0; line-height: 1.5; }
+.ca-fert-hint { text-align: center; color: var(--text-muted); font-size: 0.9rem; }
+
+/* Pest */
+.ca-pest-list, .ca-pest-fallback { display: flex; flex-direction: column; gap: 10px; }
+.ca-pest-card {
+    display: flex; align-items: flex-start; gap: 12px;
+    background: var(--bg-card); border: 1px solid var(--border-color);
+    border-radius: 13px; padding: 13px;
+}
+.ca-pest-icon { color: #ef5350; flex-shrink: 0; margin-top: 2px; }
+.ca-pest-emoji { font-size: 1.4rem; flex-shrink: 0; }
+.ca-pest-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--text-primary); margin: 0 0 4px; }
+.ca-pest-card p { font-size: 0.82rem; color: var(--text-secondary); margin: 0; line-height: 1.5; }
+
+/* Season */
+.ca-season-guide { display: flex; flex-direction: column; gap: 8px; }
+.ca-season-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 12px 14px; border-radius: 12px; border-left: 3px solid transparent;
+}
+.ca-season-item.sea-kharif { background: rgba(74,158,255,0.06); border-left-color: #4a9eff; }
+.ca-season-item.sea-rabi { background: rgba(82,183,136,0.06); border-left-color: #52b788; }
+.ca-season-item.sea-zaid { background: rgba(251,146,60,0.06); border-left-color: #fb923c; }
+.ca-season-item.sea-transition { background: rgba(139,92,246,0.06); border-left-color: #8b5cf6; }
+.ca-season-month {
+    display: flex; align-items: center; gap: 5px;
+    font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);
+    white-space: nowrap; flex-shrink: 0; width: 100px;
+}
+.ca-season-item p { font-size: 0.85rem; color: var(--text-primary); margin: 0; line-height: 1.5; }
+
+.spin { animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
